@@ -34,8 +34,6 @@ public class JWTFilter extends GenericFilterBean{
 		 if(!authHeader.startsWith("Bearer")) {
 			 throw new ServletException("Authorization header must starts with Bearer");
 		}
-			
-		
 		
 		String jwtToken = authHeader.substring(7);
 		try {
