@@ -1,5 +1,6 @@
 package com.stackroute.springboot.repository;
 
+import org.springframework.data.mongodb.repository.DeleteQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -24,5 +25,8 @@ public interface UserRepository extends MongoRepository<User,String> {
 	
 	  public User findByusername(); 
 	  public User findByname();
+	  public User findByid();
+	  @DeleteQuery (value="{'id' : $0}")
+	  public boolean deleteByid (String id);
 	 
 }

@@ -42,6 +42,12 @@ public class UserService implements IUserService {
 	}
 
 	@Override
+	public User getUserById(String id) throws UserNotFoundException {
+		
+		return userRepository.findByid();
+	}
+
+	@Override
 	public List<User> getAllUsers() {
 		
 		return userRepository.findAll();
@@ -59,6 +65,20 @@ public class UserService implements IUserService {
 		
 		
 		return createdUser;
+	}
+
+	@Override
+	public User updateUser(User user) {
+		
+		User updatedUser = userRepository.save(user);
+		
+		return updatedUser;
+	}
+
+	@Override
+	public boolean deleteUser(String id) throws UserNotFoundException {
+		
+		return userRepository.deleteByid(id);
 	}
 
 }
